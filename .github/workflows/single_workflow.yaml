@@ -30,6 +30,10 @@ jobs:
       run: terraform init
       working-directory: aws-infrastructure  # Adjust to your Terraform code location
 
+    - name: Terraform validate
+      run: terraform validate
+      working-directory: aws-infrastructure
+      
     - name: Plan Terraform Changes
       run: terraform plan 
       working-directory: aws-infrastructure
