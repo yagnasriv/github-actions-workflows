@@ -6,13 +6,13 @@ terraform {
     }
   }
 
-  # backend "s3" {
+  backend "s3" {
 
-  #   bucket = "terraform-s3-state-yv"
-  #   key = "terraform.tfstate"
-  #   region = "us-east-1"
+    bucket = "terraform-s3-state-yv"
+    key = "terraform.tfstate"
+    region = "us-east-1"
     
-  # }
+  }
 }
 
 
