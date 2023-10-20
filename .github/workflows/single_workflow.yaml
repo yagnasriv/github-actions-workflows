@@ -31,7 +31,7 @@ jobs:
       working-directory: aws-infrastructure  # Adjust to your Terraform code location
 
     - name: Plan Terraform Changes
-      run: terraform plan -out=tfplan
+      run: terraform plan 
       working-directory: aws-infrastructure
 
     # - name: Apply Terraform Changes
