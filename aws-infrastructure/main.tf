@@ -29,7 +29,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "bucket" {
   bucket = "aws-s3-test-bucket"
-  
+  region = "us-east-1"
 
 
   tags = {
