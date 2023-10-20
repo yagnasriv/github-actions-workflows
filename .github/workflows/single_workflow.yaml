@@ -26,9 +26,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: "us-east-1"
 
-    # - name: Terraform init
-    #   run: terraform init
-    #   working-directory: aws-infrastructure  # Adjust to your Terraform code location
+    - name: Terraform init
+      run: terraform init
+      working-directory: aws-infrastructure  # Adjust to your Terraform code location
 
     # - name: Plan Terraform Changes
     #   run: terraform plan -out=tfplan
