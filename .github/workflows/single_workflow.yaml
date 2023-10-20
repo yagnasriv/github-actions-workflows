@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - main  # Adjust to your repository's default branch
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   deploy:
