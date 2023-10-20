@@ -1,0 +1,37 @@
+name: Destroy AWS resources ### workflow for destroying the resources on aws 
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:  # Manually triggers the workflow
+
+jobs:
+  destroy-resources:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1  # Change this to your desired AWS region
+
+    
+    - name: Configure Backend with Existing S3 Bucket
+      run: |
+        
+        S3_BUCKET_NAME="terraform-backend-yv"   # Replace <your-existing-s3-bucket-name> with your actual S3 bucket name
+
+        # Initialize Terraform with the existing S3 bucket as the backend
+        terraform init -backend-config="bucket=$S3_BUCKET_NAME"
+      working-directory: aws-infrastructure
+
+    - name: Destroy AWS Resources
+      run: |
+        terraform destroy -auto-approve
+      working-directory: aws-infrastructure
