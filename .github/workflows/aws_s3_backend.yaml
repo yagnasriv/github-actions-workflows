@@ -1,4 +1,4 @@
-name: AWS S3 Backend Configuration
+name: Deploy AWS resource using AWS S3 Backend Configuration
 
 on:
   pull_request:
@@ -25,7 +25,7 @@ jobs:
     - name: Configure Backend with AWS S3
       run: |
         # Replace these values with your AWS S3 bucket and key
-        S3_BUCKET_NAME="test-tf-backend-yv"
+        S3_BUCKET_NAME="terraform-backend-yv"
         S3_KEY="yv/terraform.tfstate"
 
         # Initialize Terraform with the AWS S3 backend configuration

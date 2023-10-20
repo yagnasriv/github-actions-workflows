@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
 
-    bucket = "test-tf-backend-yv"
+    bucket = "terraform-backend-yv"
     key = "terraform.tfstate"
     region = "us-east-1"
     
@@ -28,7 +28,7 @@ provider "aws" {
 
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "my-tf-test-bucket-yv"
+  bucket = "aws-s3-test-bucket"
   
 
 
