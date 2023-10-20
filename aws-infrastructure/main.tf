@@ -29,8 +29,6 @@ provider "aws" {
 
 resource "aws_s3_bucket" "bucket" {
   bucket = "aws-s3-test-bucket"
-  region = var.region
-
 
   tags = {
     Name        = "My bucket"
