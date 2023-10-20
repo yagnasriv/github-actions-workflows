@@ -1,0 +1,32 @@
+name: AWS S3 Backend Configuration
+
+on:
+  pull_request:
+    branches:
+      - main  # Adjust the branch name as needed
+  workflow_dispatch:
+
+jobs:
+  configure-backend:
+    runs-on: ubuntu-latest
+
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region:            "us-east-1"  # Change to your AWS region
+
+    - name: Configure Backend with AWS S3
+      run: |
+        # Replace these values with your AWS S3 bucket and key
+        S3_BUCKET_NAME="test-tf-backend-yv"
+        S3_KEY="yv/terraform.tfstate"
+
+        # Initialize Terraform with the AWS S3 backend configuration
+        terraform init -backend-config="bucket=$S3_BUCKET_NAME" -backend-config="key=$S3_KEY"
