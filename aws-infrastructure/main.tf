@@ -10,7 +10,7 @@ terraform {
 
     bucket = "terraform-backend-yv"
     key = "terraform.tfstate"
-    region = "us-east-1"
+    region = var.region
     
   }
 }
