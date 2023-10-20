@@ -31,3 +31,25 @@ jobs:
         # Initialize Terraform with the AWS S3 backend configuration
         terraform init -backend-config="bucket=$S3_BUCKET_NAME" -backend-config="key=$S3_KEY"
       working-directory: aws-infrastructure
+
+
+    - name: Initialize Terraform
+      run: terraform init
+      working-directory: aws-infrastructure  # Adjust to your Terraform code location
+
+    - name: Terraform validate
+      run: terraform validate
+      working-directory: aws-infrastructure
+
+    - name: Plan Terraform Changes
+      run: terraform plan -out=tfplan
+      working-directory: aws-infrastructure
+
+    - name: Apply Terraform Changes
+      run: terraform apply -input=false tfplan
+      working-directory: aws-infrastructure
+      env:
+        aws-access-key-id:      ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region:             "us-east-1"  # Adjust to your desired AWS region
+      # Be sure to configure your GitHub repository secrets for AWS access keys
