@@ -38,14 +38,14 @@ jobs:
       run: terraform plan -out=tfplan
       working-directory: aws-infrastructure
 
-    # - name: Apply Terraform Changes
-    #   run: terraform apply -input=false tfplan
-    #   working-directory: aws-infrastructure
-    #   env:
-    #     TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #     TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #     TF_VAR_aws_region: us-east-1  # Adjust to your desired AWS region
-    #   # Be sure to configure your GitHub repository secrets for AWS access keys
+    - name: Apply Terraform Changes
+      run: terraform apply -input=false tfplan
+      working-directory: aws-infrastructure
+      env:
+        TF_VAR_aws_access_key:    ${{ secrets.AWS_ACCESS_KEY_ID }}
+        TF_VAR_aws_secret_key:    ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        TF_VAR_aws_region:        "us-east-1"  # Adjust to your desired AWS region
+      # Be sure to configure your GitHub repository secrets for AWS access keys
 
     # - name: Clean Up Terraform Files
     #   run: rm -f tfplan
