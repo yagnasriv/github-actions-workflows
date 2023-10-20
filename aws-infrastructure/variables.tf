@@ -18,7 +18,6 @@ variable "subnet_id" {
   default = "subnet-088463813c6744d33"
 }
 
-variable "bucket_name" {}
 
 variable "acl_value" {
     default = "private"
