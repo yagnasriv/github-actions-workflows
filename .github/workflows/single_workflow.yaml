@@ -23,12 +23,12 @@ jobs:
       with:
         terraform_version: 1.6.2  # Replace with your desired Terraform version
 
-    # - name: Set up AWS CLI
-    #   uses: aws-actions/configure-aws-credentials@v1
-    #   with:
-    #     aws-access-key-id:      ${{ secrets.AWS_ACCESS_KEY_ID }}  ### Refer to repository for secret key id and access key
-    #     aws-secret-access-key:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #     aws-region:             "us-east-1"
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id:      ${{ secrets.AWS_ACCESS_KEY_ID }}  ### Refer to repository for secret key id and access key
+        aws-secret-access-key:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region:             "us-east-1"
 
     - name: Initialize Terraform
       run: terraform init
