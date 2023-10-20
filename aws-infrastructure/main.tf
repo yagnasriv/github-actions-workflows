@@ -10,14 +10,14 @@ terraform {
 
     bucket = "terraform-backend-yv"
     key = "terraform.tfstate"
-    region = var.region
+    region = "us-east-1"
     
   }
 }
 
 
 provider "aws" {
-  region     = var.region
+  region     = "us-east-1"
 }
 
 # resource "aws_instance" "this" {

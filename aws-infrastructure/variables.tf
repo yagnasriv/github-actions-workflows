@@ -1,8 +1,3 @@
-variable "region" {
-description = "default ec2 isntance region"
-default   = "us-east-1"
-}
-
 variable "ami" {
   description = "instance os type"
   default = "ami-053b0d53c279acc90"
