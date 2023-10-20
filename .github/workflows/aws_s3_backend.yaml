@@ -30,3 +30,4 @@ jobs:
 
         # Initialize Terraform with the AWS S3 backend configuration
         terraform init -backend-config="bucket=$S3_BUCKET_NAME" -backend-config="key=$S3_KEY"
+      working-directory: aws-infrastructure
