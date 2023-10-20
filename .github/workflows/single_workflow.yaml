@@ -28,6 +28,7 @@ jobs:
 
     - name: Terraform init
       run: terraform init
+        aws s3api list-objects
       working-directory: aws-infrastructure  # Adjust to your Terraform code location
 
     # - name: Plan Terraform Changes
