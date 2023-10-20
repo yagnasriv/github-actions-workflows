@@ -20,13 +20,13 @@ terraform {
   ### to manage your configuration files, 
   ### and store your state in a remote backend such as Terraform Cloud or Terraform Enterprise.
 
-  # backend "s3" {
+  backend "s3" {
 
-  #   bucket = "terraform-backend-yv"
-  #   key = "terraform.tfstate"
-  #   region = "us-east-1"
+    bucket = "terraform-backend-yv"
+    key = "terraform.tfstate"
+    region = "us-east-1"
     
-  # }
+  }
 }
 
 
