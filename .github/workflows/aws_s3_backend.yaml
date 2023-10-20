@@ -6,15 +6,14 @@ on:
       - main  # Adjust the branch name as needed
   workflow_dispatch:
 
+
 jobs:
   configure-backend:
     runs-on: ubuntu-latest
-
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
 
     - name: Set up AWS CLI
       uses: aws-actions/configure-aws-credentials@v1

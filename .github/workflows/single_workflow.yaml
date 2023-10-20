@@ -10,10 +10,10 @@ on:
       - main  # Adjust to your repository's default branch
   workflow_dispatch:
 
+
 jobs:
   single-workflow:
     runs-on: ubuntu-latest
-
 
     steps:
     - name: Checkout Repository

@@ -34,6 +34,8 @@ provider "aws" {
   region     = "us-east-1"
 }
 
+### Resource for creating a AWS EC2 Instance, Please refer to Terraform documentation 
+
 resource "aws_instance" "this" {
   ami                     = var.ami
   instance_type           = var.instance_type
